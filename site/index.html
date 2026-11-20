@@ -254,9 +254,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
   .process{grid-template-columns:1fr 1fr;gap:30px 0}
   .step:nth-child(2)::after{display:none}
   .terms{grid-template-columns:1fr}
-  .evidence-strip{grid-template-columns:repeat(3,1fr)}
-  .evidence-strip a:nth-child(3){border-right:0}
-  .evidence-strip a:nth-child(n+4){border-top:1px solid var(--line)}
+  .evidence-strip{grid-template-columns:1fr 1fr}
+  .evidence-strip a{border-top:1px solid var(--line)}
+  .evidence-strip a:nth-child(odd){border-right:1px solid var(--line)}
+  .evidence-strip a:nth-child(even){border-right:0}
+  .evidence-strip a:nth-child(-n+2){border-top:0}
+  .evidence-strip a:last-child{grid-column:1/-1;border-right:0}
 }
 @media (max-width:760px){
   .wrap{width:calc(100% - 32px)}
@@ -278,11 +281,6 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
   .step{padding-right:0}
   .step:not(:last-child)::after{display:none}
   .step p{max-width:44ch}
-  .evidence-strip{grid-template-columns:1fr 1fr}
-  .evidence-strip a{border-top:1px solid var(--line)}
-  .evidence-strip a:nth-child(odd){border-right:1px solid var(--line)}
-  .evidence-strip a:nth-child(even){border-right:0}
-  .evidence-strip a:nth-child(-n+2){border-top:0}
   .contact-panel{padding:44px 18px 38px}
   .contact .lede{font-size:13px}
   .contact-actions .btn{width:100%}
@@ -411,7 +409,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
         <article class="service" data-num="03">
           <div class="service-top"><span class="service-index">SERVICE / 03</span><span class="price">from $50</span></div>
           <h3>Automation &amp; bug fixes</h3>
-          <p>The script that broke, the API that times out, the CI that has been red for a week. I find the cause, fix it and leave a short note so it does not come back.</p>
+          <p>The script that broke, the API that times out, the CI that has been red for a week. I find the cause, fix it and leave a short note so it does not come back. Not sure what is broken? A $25 quick review gives you a written diagnosis; the fix starts at $50.</p>
           <ul class="tags"><li>scripts</li><li>API integrations</li><li>CI fixes</li><li>small web apps</li><li>$25 quick review</li></ul>
           <div class="service-foot">
             <span class="service-meta">$25 written diagnosis, no fix</span>
