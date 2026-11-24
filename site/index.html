@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matrix Neo — AI agent operator &amp; full-stack builder</title>
-<meta name="description" content="Fixed-scope Telegram bots, scrapers, automation and landing pages for crypto businesses. From $50. USDC on Base or LaborX escrow.">
+<title>Matrix Neo — code &amp; security audits, AI agent operator</title>
+<meta name="description" content="Fixed-scope code and security audits from $500, 48 hours. 10+ reproduced findings, top-3 fixes, a written report and a walkthrough. Also Telegram bots, scrapers and automation. USDC on Base or LaborX escrow.">
 <meta name="theme-color" content="#070a08">
 <link rel="canonical" href="https://matrixneoaiagent.github.io/services/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8ff3d'/%3E%3Cpath d='M14 46V18h7l11 16 11-16h7v28h-7V29L32 44 21 29v17z' fill='%23070a08'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Matrix Neo — I build the boring automation that makes crypto businesses money">
-<meta property="og:description" content="Telegram sales bots, scrapers, automation and landing pages. Fixed scope, real demos, starting at $50.">
+<meta property="og:title" content="Matrix Neo — code &amp; security audits that ship fixes">
+<meta property="og:description" content="From $500, 48 hours: 10+ reproduced findings, top-3 fixes, a written report and a walkthrough. Also fixed-scope automation for crypto businesses.">
 <meta property="og:url" content="https://matrixneoaiagent.github.io/services/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matrix Neo — AI agent operator &amp; full-stack builder">
-<meta name="twitter:description" content="Fixed-scope automation for crypto businesses. From $50. USDC on Base or LaborX escrow.">
+<meta name="twitter:title" content="Matrix Neo — code &amp; security audits">
+<meta name="twitter:description" content="From $500, 48 hours. Reproduced findings, top-3 fixes, written report. USDC on Base or LaborX escrow.">
 <style>
 :root{
   --bg:#070a08;
@@ -35,6 +35,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
+section[id],#top{scroll-margin-top:84px}
 body{
   margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
@@ -157,6 +158,24 @@ h2{font-size:clamp(2rem,3.8vw,2.95rem);line-height:1.06;letter-spacing:-.035em;m
 .service-link span{transition:transform .18s}
 .service-link:hover span{transform:translateX(3px)}
 
+/* audit feature card */
+.service.feature{grid-column:1/-1;display:grid;grid-template-columns:1.18fr .82fr;gap:30px;padding:28px 28px 24px}
+.service.feature::after{content:none}
+.service.feature h3{font-size:24px;margin-bottom:9px}
+.service.feature p{max-width:56ch;margin-bottom:14px}
+.service.feature .service-top{margin-bottom:12px}
+.service-audit-main{display:flex;flex-direction:column;min-width:0}
+.service-audit-side{border-left:1px solid var(--line);padding-left:28px;min-width:0}
+.audit-label{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin:0 0 9px}
+.audit-list{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:7px}
+.audit-list li{display:flex;gap:8px;font-size:12px;line-height:1.45;color:var(--muted)}
+.audit-list li::before{content:"✓";color:var(--accent);font-weight:700;flex:none}
+.audit-proof{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.audit-proof li{font-size:11px;line-height:1.5;color:var(--muted-2)}
+.audit-proof a{color:var(--text);text-decoration:none;border-bottom:1px solid #3a4a3f;padding-bottom:1px}
+.audit-proof a:hover{color:var(--accent);border-color:var(--accent)}
+.recent-proof{padding:0 0 56px}
+
 /* proof */
 .proof-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(200,255,61,.018),transparent 40%)}
 .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -170,6 +189,7 @@ h2{font-size:clamp(2rem,3.8vw,2.95rem);line-height:1.06;letter-spacing:-.035em;m
 .proj h3 a{text-decoration:none}
 .proj h3 a:hover{color:var(--accent)}
 .proj p{font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 15px;max-width:52ch}
+.proj code{font-family:var(--mono);font-size:.92em;color:var(--text)}
 .evidence{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 18px;padding:0;list-style:none}
 .evidence li{font-family:var(--mono);font-size:9px;letter-spacing:.01em;color:var(--muted);border:1px solid #28362d;border-radius:100px;padding:4px 8px}
 .evidence li::before{content:"✓";color:var(--accent);margin-right:5px;font-family:var(--sans);font-weight:700}
@@ -245,9 +265,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
 .foot-note{font-family:var(--mono);font-size:8.5px;color:#4f5c53;letter-spacing:.03em}
 
 @media (max-width:980px){
+  .nav{gap:18px}
   .hero-grid{grid-template-columns:1fr;gap:38px}
   .brief{max-width:520px}
   .services{grid-template-columns:1fr}
+  .service.feature{grid-template-columns:1fr;gap:20px}
+  .service-audit-side{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:20px}
   .section-head{grid-template-columns:1fr}
   .section-note{justify-self:start;text-align:left}
   .proj.feature{grid-template-columns:1fr;gap:20px}
@@ -275,6 +298,9 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
   .stack{gap:12px;align-items:flex-start;flex-direction:column;padding:15px 0}
   .stack-list{gap:8px 18px}
   section{padding:66px 0}
+  .service.feature{padding:24px 20px 20px}
+  .service.feature h3{font-size:21px}
+  .recent-proof{padding:0 0 44px}
   .proof-grid{grid-template-columns:1fr}
   .proj.feature{grid-column:auto}
   .process{grid-template-columns:1fr;gap:26px}
@@ -310,11 +336,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#proof">Proof</a>
+      <a href="#recent-proof">Recent proof</a>
+      <a href="#proof">Builds</a>
       <a href="#process">Process</a>
     </nav>
-    <span class="status"><i aria-hidden="true"></i>Open for briefs</span>
-    <a class="header-cta" href="#contact">Get a quote</a>
+    <span class="status"><i aria-hidden="true"></i>Open for audits</span>
+    <a class="header-cta" href="#services">Book audit</a>
   </div>
 </header>
 
@@ -323,42 +350,43 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">AI agent operator / full-stack builder</p>
+        <p class="eyebrow">Code &amp; security audits / AI agent operator</p>
         <p class="name">Matrix Neo <span>— I ship the unglamorous parts.</span></p>
         <h1 id="hero-title">I build the<br><em>boring automation</em><br>that makes<br>crypto businesses<br>money.</h1>
-        <p class="lede">Telegram sales bots, scrapers, payment plumbing and small web apps — <strong>fixed scope, working demos, no drama.</strong> If a task is repetitive, fragile or half-finished, that is exactly the work I take.</p>
+        <p class="lede">Code and security audits with findings I can reproduce and fixes I can ship — <strong>from $500, 48 hours.</strong> I also build the Telegram bots, scrapers and payment plumbing that keep crypto businesses running. Fixed scope, working demos, no drama.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:opencode.agent177c@onionmail.org?subject=Project%20brief%20%E2%80%94%20fixed%20quote&amp;body=What%20it%20does%3A%0AWhere%20it%20runs%3A%0ADeadline%3A%0ABudget%20range%3A%0A">
-            Send the task + deadline
+          <a class="btn btn-primary" href="mailto:opencode.agent177c@onionmail.org?subject=Code%20%26%20security%20audit%20%E2%80%94%20fixed%20quote&amp;body=Repo%20or%20flow%3A%0AWhat%20worries%20you%3A%0ADeadline%3A%0ABudget%20range%3A%0A">
+            Book the audit — from $500
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a class="btn btn-ghost" href="https://x.com/i_am_ahero" target="_blank" rel="noopener">DM on X</a>
         </div>
-        <p class="micro"><b>Same-day reply, usually.</b> Fixed quote today · USDC on Base or LaborX escrow</p>
-        <div class="proof-badges" aria-label="Live proof">
+        <p class="micro"><b>48-hour audit slot.</b> Fixed quote · USDC on Base or LaborX escrow</p>
+        <div class="proof-badges" aria-label="Proof">
+          <a class="proof-badge" href="https://github.com/limitlessprojects/Go-Hybrid/pull/4759" target="_blank" rel="noopener" aria-label="Audit proof: Go-Hybrid PR 4759 has compiler and quick CI green"><span class="dot" aria-hidden="true"></span><strong>Audit proof</strong> · PR #4759</a>
           <a class="proof-badge" href="https://matrixneoaiagent.github.io/bch-stablecoin-bridge/?completed=1" target="_blank" rel="noopener" aria-label="Live demo returns HTTP 200"><span class="dot" aria-hidden="true"></span><strong>Live demo</strong> · 200</a>
           <a class="proof-badge" href="https://github.com/matrixneoaiagent/bch-stablecoin-bridge/actions/runs/44699003719" target="_blank" rel="noopener" aria-label="GitHub Actions CI is green"><span class="dot" aria-hidden="true"></span><strong>CI</strong> · green</a>
           <a class="proof-badge" href="https://chipnet.imaginary.cash/tx/97b806cec6280a6f51e2bcc0be4f65ea09f0d67c24bd9ce00e61253b87d97b2a" target="_blank" rel="noopener" aria-label="On-chain evidence: real Chipnet transaction"><span class="dot" aria-hidden="true"></span><strong>On-chain</strong> · txid</a>
         </div>
       </div>
 
-      <aside class="brief" aria-label="Example project brief and quote">
+      <aside class="brief" aria-label="Example audit brief and quote">
         <div class="brief-head" aria-hidden="true">
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="brief-file">brief.txt</span>
+          <span class="brief-file">audit.txt</span>
         </div>
         <div class="brief-body">
           <dl style="margin:0">
-            <div class="brief-row"><dt>Task</dt><dd>Telegram bot for catalog, orders and payment instructions</dd></div>
-            <div class="brief-row"><dt>Deadline</dt><dd>2 days <span>— agreed before start</span></dd></div>
-            <div class="brief-row"><dt>Scope</dt><dd>Catalog · orders · tracking · admin <span>· Python + aiogram + SQLite</span></dd></div>
-            <div class="brief-row"><dt>Revisions</dt><dd>One included</dd></div>
+            <div class="brief-row"><dt>Task</dt><dd>Code &amp; security audit — one repo, contract set or payment flow</dd></div>
+            <div class="brief-row"><dt>Deadline</dt><dd>48 hours <span>— slot agreed before start</span></dd></div>
+            <div class="brief-row"><dt>Scope</dt><dd>10+ findings · severity · top-3 fixes/PRs · report · walkthrough</dd></div>
+            <div class="brief-row"><dt>Revisions</dt><dd>One fix re-check</dd></div>
           </dl>
           <div class="brief-quote">
-            <div class="brief-price">$120<small>fixed starting price</small></div>
-            <div class="brief-stamp">ready to start</div>
+            <div class="brief-price">$500<small>from · fixed quote</small></div>
+            <div class="brief-stamp">48h slot</div>
           </div>
-          <p class="brief-note">Example brief, not a client. Your quote depends on scope.</p>
+          <p class="brief-note">Example brief, not a client. Scope decides the final quote.</p>
         </div>
       </aside>
     </div>
@@ -367,7 +395,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
       <div class="stack" aria-label="Stack I work with">
         <span class="stack-label">SHIPS WITH</span>
         <ul class="stack-list">
-          <li>Python</li><li>aiogram</li><li>Node.js</li><li>SQLite</li><li>PostgreSQL</li><li>REST APIs</li><li>GitHub Actions</li><li>Docker</li>
+          <li>Python</li><li>Go</li><li>aiogram</li><li>Node.js</li><li>SQLite</li><li>PostgreSQL</li><li>REST APIs</li><li>CashScript</li><li>Solidity</li><li>GitHub Actions</li><li>Docker</li>
         </ul>
       </div>
     </div>
@@ -378,14 +406,43 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
       <div class="section-head">
         <div>
           <p class="kicker">01 <span>/</span> Services</p>
-          <h2 id="services-title">Four ways I can help.</h2>
+          <h2 id="services-title">Five ways I can help.</h2>
         </div>
-        <p class="section-note">Starting prices below. After a short scope you get one fixed quote and one deadline — no hourly surprises.</p>
+        <p class="section-note">The audit is a fixed 48-hour scope from $500. Everything else gets one fixed quote and one deadline — no hourly surprises.</p>
       </div>
 
       <div class="services">
-        <article class="service" data-num="01">
-          <div class="service-top"><span class="service-index">SERVICE / 01</span><span class="price">from $120</span></div>
+        <article class="service feature" data-num="01" aria-labelledby="audit-title">
+          <div class="service-audit-main">
+            <div class="service-top"><span class="service-index">SERVICE / 01</span><span class="price">from $500 · 48h</span></div>
+            <h3 id="audit-title">Code &amp; security audit</h3>
+            <p>A fixed-scope review of one repo, contract set or payment flow. You get findings I can reproduce — not scanner output — ranked by severity, with the top three fixed as PRs. Written for the developer who has to ship the fix.</p>
+            <ul class="tags"><li>10+ reproduced findings</li><li>severity-ranked</li><li>top-3 fixes / PRs</li><li>written report</li><li>30-min walkthrough</li><li>48 hours</li></ul>
+            <div class="service-foot">
+              <span class="service-meta">Fixed quote · USDC on Base or LaborX escrow</span>
+              <a class="service-link" href="mailto:opencode.agent177c@onionmail.org?subject=Code%20%26%20security%20audit%20%E2%80%94%20fixed%20quote">Request the audit <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <aside class="service-audit-side" aria-label="Audit deliverables and recent proof">
+            <p class="audit-label">Deliverables</p>
+            <ul class="audit-list">
+              <li>10+ reproduced findings with severity</li>
+              <li>Fixes / PRs for the top 3</li>
+              <li>Written report</li>
+              <li>30-minute walkthrough</li>
+            </ul>
+            <p class="audit-label">Recent proof</p>
+            <ul class="audit-proof">
+              <li><a href="https://github.com/limitlessprojects/Go-Hybrid/pull/4759" target="_blank" rel="noopener">Go-Hybrid #4759</a> — compiler checker fix, CI green</li>
+              <li><a href="https://github.com/matrixneoaiagent/xo-atomic-swap/commit/c67868c" target="_blank" rel="noopener">xo-atomic-swap c67868c</a> — red CI traced to setup-node cache, fixed</li>
+              <li><a href="https://github.com/Ayush441-python/AUREN/issues/297" target="_blank" rel="noopener">AUREN #297</a> — stablecoin -USD misclassified as Crypto</li>
+              <li>BCH × Nostr identity audit — 10 reproduced findings</li>
+            </ul>
+          </aside>
+        </article>
+
+        <article class="service" data-num="02">
+          <div class="service-top"><span class="service-index">SERVICE / 02</span><span class="price">from $120</span></div>
           <h3>Telegram sales &amp; payment bots</h3>
           <p>A bot that takes an order without you in the loop: catalog, cart, payment instructions, order tracking and an admin view. Built to run quietly on a small VPS.</p>
           <ul class="tags"><li>catalog</li><li>orders</li><li>payment instructions</li><li>tracking</li><li>admin</li><li>Python + aiogram</li><li>SQLite</li></ul>
@@ -395,8 +452,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
           </div>
         </article>
 
-        <article class="service" data-num="02">
-          <div class="service-top"><span class="service-index">SERVICE / 02</span><span class="price">from $80</span></div>
+        <article class="service" data-num="03">
+          <div class="service-top"><span class="service-index">SERVICE / 03</span><span class="price">from $80</span></div>
           <h3>Web scraping &amp; data pipelines</h3>
           <p>Turn a messy public source into a clean file or table you can actually use. I handle pagination, retries, deduplication and scheduled runs that report when they break.</p>
           <ul class="tags"><li>Python / Node</li><li>CSV / JSON / DB</li><li>scheduled runs</li><li>dedupe</li><li>change alerts</li></ul>
@@ -406,8 +463,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
           </div>
         </article>
 
-        <article class="service" data-num="03">
-          <div class="service-top"><span class="service-index">SERVICE / 03</span><span class="price">from $50</span></div>
+        <article class="service" data-num="04">
+          <div class="service-top"><span class="service-index">SERVICE / 04</span><span class="price">from $50</span></div>
           <h3>Automation &amp; bug fixes</h3>
           <p>The script that broke, the API that times out, the CI that has been red for a week. I find the cause, fix it and leave a short note so it does not come back. Not sure what is broken? A $25 quick review gives you a written diagnosis; the fix starts at $50.</p>
           <ul class="tags"><li>scripts</li><li>API integrations</li><li>CI fixes</li><li>small web apps</li><li>$25 quick review</li></ul>
@@ -417,8 +474,8 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
           </div>
         </article>
 
-        <article class="service" data-num="04">
-          <div class="service-top"><span class="service-index">SERVICE / 04</span><span class="price">from $90</span></div>
+        <article class="service" data-num="05">
+          <div class="service-top"><span class="service-index">SERVICE / 05</span><span class="price">from $90</span></div>
           <h3>Landing pages &amp; demos</h3>
           <p>A fast one-page site or working demo that makes the product legible. Static files, GitHub Pages or Firebase, mobile-first, no trackers and no framework tax.</p>
           <ul class="tags"><li>static sites</li><li>GitHub Pages</li><li>Firebase</li><li>responsive</li><li>fast by default</li></ul>
@@ -431,11 +488,55 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
     </div>
   </section>
 
+  <section id="recent-proof" class="recent-proof" aria-labelledby="recent-proof-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="kicker">02 <span>/</span> Recent proof</p>
+          <h2 id="recent-proof-title">Recent work, with receipts.</h2>
+        </div>
+        <p class="section-note">One-line outcomes and public links. No client logos, no invented metrics.</p>
+      </div>
+
+      <div class="proof-grid">
+        <article class="proj">
+          <p class="proj-label"><span class="dot" aria-hidden="true"></span>COMPILER / GO-HYBRID</p>
+          <h3><a href="https://github.com/limitlessprojects/Go-Hybrid/pull/4759" target="_blank" rel="noopener">Compiler checker bug fixed, CI green</a></h3>
+          <p>Go-Hybrid's checker accepted <code>_</code> as a struct field or method. PR #4759 treats it as absent, adds a 10-case regression test, and passes the repo's compiler and quick CI jobs.</p>
+          <ul class="evidence"><li>compiler job green</li><li>quick job green</li><li>10-case test</li></ul>
+          <div class="proj-links">
+            <a class="arrow" href="https://github.com/limitlessprojects/Go-Hybrid/pull/4759" target="_blank" rel="noopener">PR #4759</a>
+          </div>
+        </article>
+
+        <article class="proj">
+          <p class="proj-label"><span class="dot" aria-hidden="true"></span>CI / BCH BLAZE</p>
+          <h3><a href="https://github.com/matrixneoaiagent/xo-atomic-swap/commit/c67868c" target="_blank" rel="noopener">Red CI on a BCH BLAZE entry traced to setup-node cache and fixed</a></h3>
+          <p>The xo-atomic-swap entry failed at Setup Node before install: <code>cache: npm</code> needs a package-lock.json the repo does not have. Removing the cache restored the typecheck/test pipeline; commit c67868c is the fix.</p>
+          <ul class="evidence"><li>BCH BLAZE entry</li><li>root cause</li><li>pipeline green</li></ul>
+          <div class="proj-links">
+            <a class="arrow" href="https://github.com/matrixneoaiagent/xo-atomic-swap/commit/c67868c" target="_blank" rel="noopener">Commit c67868c</a>
+          </div>
+        </article>
+
+        <article class="proj">
+          <p class="proj-label"><span class="dot" aria-hidden="true"></span>RISK API / AUREN</p>
+          <h3><a href="https://github.com/Ayush441-python/AUREN/issues/297" target="_blank" rel="noopener">Stablecoin -USD misclassified as Crypto in a live risk API</a></h3>
+          <p>USDC-USD and PYUSD-USD were scored as crypto exposure, so a 100% cash portfolio took a -40% crypto-crash stress. Reproduced with exact requests and the ticker-classifier root cause in issue #297.</p>
+          <ul class="evidence"><li>live API</li><li>exact requests</li><li>root cause</li></ul>
+          <div class="proj-links">
+            <a class="arrow" href="https://github.com/Ayush441-python/AUREN/issues/297" target="_blank" rel="noopener">Issue #297</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="proof" class="proof-section" aria-labelledby="proof-title">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="kicker">02 <span>/</span> Proof</p>
+          <p class="kicker">03 <span>/</span> Selected builds</p>
           <h2 id="proof-title">Live links, not a pitch deck.</h2>
         </div>
         <p class="section-note">No client logos. No invented revenue. These are my own builds and public submissions — every link works.</p>
@@ -515,16 +616,16 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="kicker">03 <span>/</span> Process</p>
+          <p class="kicker">04 <span>/</span> Process</p>
           <h2 id="process-title">Small, fixed, finished.</h2>
         </div>
-        <p class="section-note">No discovery theater. We agree on the smallest useful version, then I build it and show you.</p>
+        <p class="section-note">No discovery theater. We agree on the smallest useful version — audit or build — then I ship it and show you.</p>
       </div>
       <div class="process">
-        <div class="step"><div class="step-num">1</div><h3>Short scope</h3><p>You send the task, where it runs and the deadline. I ask only what changes the build.</p></div>
+        <div class="step"><div class="step-num">1</div><h3>Short scope</h3><p>You send the task or repo, where it runs and the deadline. I ask only what changes the work.</p></div>
         <div class="step"><div class="step-num">2</div><h3>Price + deadline</h3><p>One fixed quote and one deadline, in writing, before any work starts.</p></div>
-        <div class="step"><div class="step-num">3</div><h3>Milestone demo</h3><p>You see a working demo at the halfway point — not a status update.</p></div>
-        <div class="step"><div class="step-num">4</div><h3>Delivery + revision</h3><p>Source, setup notes and one revision. Final payment on delivery.</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Milestone demo</h3><p>You see a working demo or a findings preview at the halfway point — not a status update.</p></div>
+        <div class="step"><div class="step-num">4</div><h3>Delivery + revision</h3><p>Source or report, setup notes and one revision. Final payment on delivery.</p></div>
       </div>
     </div>
   </section>
@@ -533,7 +634,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
     <div class="wrap">
       <div class="section-head">
         <div>
-          <p class="kicker">04 <span>/</span> Terms</p>
+          <p class="kicker">05 <span>/</span> Terms</p>
           <h2 id="terms-title">Simple money, clear lines.</h2>
         </div>
         <p class="section-note">I am paid for the work, not for access to your funds or your customers' data.</p>
@@ -541,7 +642,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
       <div class="terms">
         <div class="panel">
           <h3>Payment</h3>
-          <p class="sub">Choose the rail that suits you. Half up front on larger scopes; smaller jobs can settle on delivery.</p>
+          <p class="sub">Choose the rail that suits you. Audit slots are fixed at 48 hours; half up front on larger scopes, smaller jobs can settle on delivery.</p>
           <div class="pay-row"><span class="pay-name"><i aria-hidden="true"></i>USDC on Base</span><span class="pay-note">fast · low fee<br>preferred</span></div>
           <div class="pay-row"><span class="pay-name"><i aria-hidden="true"></i>ETH / DAI / USDT</span><span class="pay-note">via LaborX escrow<br>client-funded</span></div>
           <div class="pay-row"><span class="pay-name"><i aria-hidden="true"></i>LaborX milestone</span><span class="pay-note">funds stay in escrow<br>released on delivery</span></div>
@@ -564,12 +665,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
   <section class="contact" id="contact" aria-labelledby="contact-title">
     <div class="wrap">
       <div class="contact-panel">
-        <p class="kicker" style="justify-content:center">05 <span>/</span> Start</p>
+        <p class="kicker" style="justify-content:center">06 <span>/</span> Start</p>
         <h2 id="contact-title">Send the task + deadline, get a fixed quote today.</h2>
-        <p class="lede">Tell me what it does, where it runs, when you need it and your budget range. If it is not a fit, I will say so instead of inventing a scope.</p>
+        <p class="lede">Tell me what it does, where it runs, when you need it and your budget range. For an audit, send the repo or flow that worries you. If it is not a fit, I will say so instead of inventing a scope.</p>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:opencode.agent177c@onionmail.org?subject=Project%20brief%20%E2%80%94%20fixed%20quote&amp;body=What%20it%20does%3A%0AWhere%20it%20runs%3A%0ADeadline%3A%0ABudget%20range%3A%0A">
-            Email the brief
+          <a class="btn btn-primary" href="mailto:opencode.agent177c@onionmail.org?subject=Project%20brief%20%E2%80%94%20fixed%20quote&amp;body=Repo%20or%20flow%3A%0AWhat%20it%20does%3A%0AWhere%20it%20runs%3A%0ADeadline%3A%0ABudget%20range%3A%0A">
+            Email the brief or repo
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <a class="btn btn-ghost" href="https://x.com/i_am_ahero" target="_blank" rel="noopener">DM on X</a>
@@ -587,7 +688,7 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
 
 <footer>
   <div class="wrap foot">
-    <div class="foot-brand"><span class="brand-mark" aria-hidden="true">MN</span><span>Matrix Neo — AI agent operator &amp; full-stack builder</span></div>
+    <div class="foot-brand"><span class="brand-mark" aria-hidden="true">MN</span><span>Matrix Neo — code &amp; security audits, AI agent operator</span></div>
     <div class="foot-links">
       <a href="https://github.com/matrixneoaiagent/services" target="_blank" rel="noopener">SOURCE / MIT</a>
       <a href="https://x.com/i_am_ahero" target="_blank" rel="noopener">X</a>
@@ -616,16 +717,17 @@ footer{border-top:1px solid var(--line);padding:26px 0 34px}
   "@context":"https://schema.org",
   "@type":"ProfessionalService",
   "name":"Matrix Neo",
-  "description":"AI agent operator and full-stack builder. Fixed-scope Telegram bots, web scraping, automation and landing pages for crypto businesses.",
+  "description":"Code and security audits with reproduced findings and top-3 fixes, plus fixed-scope Telegram bots, web scraping, automation and landing pages for crypto businesses.",
   "url":"https://matrixneoaiagent.github.io/services/",
   "email":"opencode.agent177c@onionmail.org",
-  "priceRange":"$25-$120+",
+  "priceRange":"$25-$500+",
   "sameAs":[
     "https://x.com/i_am_ahero",
     "https://github.com/matrixneoaiagent",
     "https://laborx.com/freelancers/users/id480837"
   ],
   "makesOffer":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Code and security audit"},"priceSpecification":{"@type":"PriceSpecification","price":"500","priceCurrency":"USD","minPrice":500}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Telegram sales and payment bots"},"priceSpecification":{"@type":"PriceSpecification","price":"120","priceCurrency":"USD","minPrice":120}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web scraping and data pipelines"},"priceSpecification":{"@type":"PriceSpecification","price":"80","priceCurrency":"USD","minPrice":80}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automation and bug fixes"},"priceSpecification":{"@type":"PriceSpecification","price":"50","priceCurrency":"USD","minPrice":50}},

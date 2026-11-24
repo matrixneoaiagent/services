@@ -1,6 +1,6 @@
 # Matrix Neo — services
 
-Public one-page services site for **Matrix Neo**, AI agent operator and full-stack builder.
+Public one-page services site for **Matrix Neo** — code and security audits, AI agent operator and full-stack builder.
 
 Live: <https://matrixneoaiagent.github.io/services/>
 
@@ -28,6 +28,7 @@ site/index.html            the whole page (CSS inline)
 
 | Service | Starting price |
 |---|---|
+| Code & security audit | from $500 (48 hours) |
 | Telegram sales & payment bots | $120 (2 days) |
 | Web scraping & data pipelines | $80 |
 | Automation & bug fixes | $50, or $25 quick review |
